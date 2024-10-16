@@ -46,14 +46,14 @@
             top: 0;
             left: 0;
             height: 100%;
-            width: 100px;
+            width: 80px;
             z-index: 100;
             background-color: rgba(0, 0, 0, 0.8);
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            padding: 20px 20px;
+            padding: 20px 10px;
             transition: width 0.3s ease;
         }
 
@@ -65,7 +65,7 @@
         .nav-items {
             display: none;
             flex-direction: column;
-            gap: 0px;
+            gap: 15px;
             margin-top: 30px;
         }
 
@@ -77,7 +77,7 @@
             color: transparent;
             background: linear-gradient(45deg, #00cec9, #0984e3);
             -webkit-background-clip: text;
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
 
         /* Heading gradient */
@@ -85,7 +85,7 @@
             background: linear-gradient(45deg, #00cec9, #0984e3);
             -webkit-background-clip: text;
             color: transparent;
-            font-size: 4rem; /* Further reduced size */
+            font-size: 2.5rem;
         }
 
         /* Glitch overlay remains the same */
@@ -97,7 +97,7 @@
             height: 100%;
             background: url('https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif') repeat;
             animation: glitch 3s infinite;
-            opacity: 0.3;
+            opacity: 0.2;
         }
 
         /* Black fade from navbar to main site */
@@ -105,16 +105,16 @@
             background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 70%);
             height: 100%;
             position: absolute;
-            left: 0; /* Corrected the position */
+            left: 0;
             right: 0;
-            top: 80px; /* Starts right after the navbar */
+            top: 80px;
             z-index: 0;
         }
 
         /* Main content styling */
         .content-area {
             position: relative;
-            padding-top: 80px; /* Reduced to eliminate black space */
+            padding-top: 80px;
             z-index: 10;
         }
 
@@ -124,50 +124,45 @@
             background-color: #111;
             color: white;
             text-align: center;
-            position: relative; /* Changed to relative */
-            margin-top: 20px; /* Ensure it appears after content */
-        }
-
-        /* "Our Services" Section styling */
-        #services {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6));
-        }
-
-        #services h2 {
-            background: none;
-            color: transparent;
-            -webkit-text-stroke: 1px white;
-            text-transform: uppercase;
-            font-weight: 600;
-            font-size: 2.5rem;
+            position: relative;
         }
 
         /* Responsive adjustments */
-        @media (max-width: 768px) {
+        @media (min-width: 1024px) {
+            .content-area h1 {
+                font-size: 3rem;
+            }
+
+            .content-area p {
+                font-size: 1.25rem;
+                line-height: 1.75rem;
+            }
+
             nav {
-                width: 80px;
+                width: 100px;
             }
 
             nav.expanded {
-                width: 200px;
+                width: 250px;
             }
 
             .content-area {
-                margin-left: 80px;
+                margin-left: 100px;
             }
 
             nav.expanded ~ .content-area {
                 margin-left: 250px;
             }
+        }
 
-            .fade-effect {
-                left: 60px;
+        /* Further responsive tweaks */
+        @media (max-width: 768px) {
+            .content-area h1 {
+                font-size: 2rem;
             }
 
-            footer {
-                margin-left: 80px;
-                margin-right: 0px;
-                width: auto; /* Allow footer to use full width within margins */
+            .content-area p {
+                font-size: 1rem;
             }
         }
     </style>
@@ -182,7 +177,7 @@
             <div></div>
             <div></div>
         </div>
-        <img src="https://i.ibb.co/kGY8WPZ/4-D7400-C3-7-C9-C-4-A84-BD6-F-3098-CDD1-C639.png" alt="AMV International Logo" class="w-16 h-16 mt-8">
+        <img src="https://i.ibb.co/kGY8WPZ/4-D7400-C3-7-C9-C-4-A84-BD6-F-3098-CDD1-C639.png" alt="AMV International Logo" class="w-12 h-12 mt-8">
         <div class="nav-items">
             <a href="#home">Home</a>
             <a href="#artists">Featured Artists</a>
@@ -198,15 +193,15 @@
     <!-- Main Section -->
     <div id="home" class="content-area flex flex-col justify-center items-center min-h-screen bg-noise bg-cover bg-center relative">
         <div class="absolute inset-0 glitch-overlay"></div>
-        <div class="relative z-10 px-8 text-center">
-            <h1 class="text-4xl font-bold gradient-text mb-6">Supporting Independent Artists & Bands</h1> <!-- Further adjusted size and centered -->
-            <p class="text-lg max-w-lg">As a subsidiary of Maroš Baláž Records, AMV International brings global visibility and professional services to independent artists, delivering world-class recording and promotion services. Let's amplify your music!</p>
+        <div class="relative z-10 px-6 text-center">
+            <h1 class="text-3xl font-bold gradient-text mb-4">Supporting Independent Artists & Bands</h1>
+            <p class="text-base max-w-xl">As a subsidiary of Maroš Baláž Records, AMV International brings global visibility and professional services to independent artists, delivering world-class recording and promotion services. Let's amplify your music!</p>
         </div>
     </div>
 
     <!-- Featured Artists Section -->
-    <section id="artists" class="content-area py-20 bg-black text-white relative">
-        <h2 class="text-4xl font-bold text-center mb-10">Featured Artists</h2>
+    <section id="artists" class="content-area py-16 bg-black text-white relative">
+        <h2 class="text-3xl font-bold text-center mb-8">Featured Artists</h2>
         <div class="relative w-4/5 mx-auto overflow-hidden">
             <div id="artist-carousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -234,16 +229,16 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="content-area py-20 text-white relative">
-        <h2 class="text-4xl font-bold text-center mb-10">Our Services</h2>
-        <div class="flex flex-col items-center space-y-4 text-lg">
-            <p align="center";>AMV International, a project by Maroš Baláž Records, is dedicated to supporting independent bands and artists with a full range of services. From music production and global distribution to strategic marketing and legal guidance, we help artists grow their careers. Our expertise includes artist development, booking, and tour management, ensuring artists can focus on their craft while we handle the business. With AMV International, independent musicians gain the tools and resources they need to succeed in the competitive music industry.</p>
+    <section id="services" class="content-area py-16 text-white relative">
+        <h2 class="text-3xl font-bold text-center mb-8">Our Services</h2>
+        <div class="flex flex-col items-center space-y-4 text-base max-w-4xl mx-auto px-4">
+            <p>AMV International, a project by Maroš Baláž Records, is dedicated to supporting independent bands and artists with a full range of services. From music production and global distribution to strategic marketing and legal guidance, we help artists grow their careers. Our expertise includes artist development, booking, and tour management, ensuring artists can focus on their craft while we handle the business.</p>
         </div>
     </section>
 
     <!-- Partners Section -->
-    <section id="partners" class="content-area py-20 bg-black text-white relative">
-        <h2 class="text-4xl font-bold text-center mb-10">Our Partners</h2>
+    <section id="partners" class="content-area py-16 bg-black text-white relative">
+        <h2 class="text-3xl font-bold text-center mb-8">Our Partners</h2>
         <div class="relative w-4/5 mx-auto overflow-hidden">
             <div id="partners-carousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
