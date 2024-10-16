@@ -127,42 +127,67 @@
             position: relative;
         }
 
-        /* Responsive adjustments */
+        /* Adjustments for PC layout */
         @media (min-width: 1024px) {
-            .content-area h1 {
-                font-size: 3rem;
-            }
-
-            .content-area p {
-                font-size: 1.25rem;
-                line-height: 1.75rem;
-            }
-
-            nav {
-                width: 100px;
-            }
-
-            nav.expanded {
-                width: 250px;
-            }
-
             .content-area {
-                margin-left: 100px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+                padding: 40px;
+                align-items: start;
             }
 
-            nav.expanded ~ .content-area {
-                margin-left: 250px;
+            /* Adjust section padding and layout */
+            .section-left, .section-right {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 40px;
+                background-color: #1a1a1a;
+                border-radius: 10px;
+            }
+
+            /* Reduce font size for desktop */
+            .section-left h1, .section-right h1 {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+
+            .section-left p, .section-right p {
+                font-size: 1rem;
+                text-align: center;
+                line-height: 1.5;
+                margin: 10px 0;
+            }
+
+            /* Adjust size of images */
+            .carousel-inner img {
+                max-height: 300px;
+                object-fit: cover;
             }
         }
 
-        /* Further responsive tweaks */
-        @media (max-width: 768px) {
-            .content-area h1 {
-                font-size: 2rem;
+        /* Responsive adjustments for mobile */
+        @media (max-width: 1023px) {
+            .content-area {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
             }
 
-            .content-area p {
-                font-size: 1rem;
+            .section-left, .section-right {
+                padding: 20px;
+            }
+
+            /* Default font sizes for mobile */
+            .section-left h1, .section-right h1 {
+                font-size: 1.75rem;
+            }
+
+            .section-left p, .section-right p {
+                font-size: 1.25rem;
             }
         }
     </style>
@@ -191,18 +216,14 @@
     <div class="fade-effect"></div>
 
     <!-- Main Section -->
-    <div id="home" class="content-area flex flex-col justify-center items-center min-h-screen bg-noise bg-cover bg-center relative">
-        <div class="absolute inset-0 glitch-overlay"></div>
-        <div class="relative z-10 px-6 text-center">
-            <h1 class="text-3xl font-bold gradient-text mb-4">Supporting Independent Artists & Bands</h1>
-            <p class="text-base max-w-xl">As a subsidiary of Maroš Baláž Records, AMV International brings global visibility and professional services to independent artists, delivering world-class recording and promotion services. Let's amplify your music!</p>
+    <div id="home" class="content-area bg-noise bg-cover bg-center relative">
+        <!-- Row 1: Supporting Independent Artists & Featured Artists -->
+        <div class="section-left">
+            <h1 class="text-2xl font-bold gradient-text mb-4">Supporting Independent Artists & Bands</h1>
+            <p class="text-base">As a subsidiary of Maroš Baláž Records, AMV International brings global visibility and professional services to independent artists, delivering world-class recording and promotion services.</p>
         </div>
-    </div>
-
-    <!-- Featured Artists Section -->
-    <section id="artists" class="content-area py-16 bg-black text-white relative">
-        <h2 class="text-3xl font-bold text-center mb-8">Featured Artists</h2>
-        <div class="relative w-4/5 mx-auto overflow-hidden">
+        <div class="section-right">
+            <h1 class="text-2xl font-bold gradient-text mb-4">Featured Artists</h1>
             <div id="artist-carousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -217,29 +238,17 @@
                             <h5>Familia Hranovnica</h5>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <img src="https://i.ibb.co/jGwR2B2/EBC101-DC-AF22-44-F9-AAA2-DDABB840-C83-F.jpg" class="d-block w-100" alt="Slovenska Ves">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Slovenská Ves</h5>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Services Section -->
-    <section id="services" class="content-area py-16 text-white relative">
-        <h2 class="text-3xl font-bold text-center mb-8">Our Services</h2>
-        <div class="flex flex-col items-center space-y-4 text-base max-w-4xl mx-auto px-4">
-            <p>AMV International, a project by Maroš Baláž Records, is dedicated to supporting independent bands and artists with a full range of services. From music production and global distribution to strategic marketing and legal guidance, we help artists grow their careers. Our expertise includes artist development, booking, and tour management, ensuring artists can focus on their craft while we handle the business.</p>
+        <!-- Row 2: Our Services & Our Partners -->
+        <div class="section-left">
+            <h1 class="text-2xl font-bold gradient-text mb-4">Our Services</h1>
+            <p class="text-base">AMV International is dedicated to supporting independent artists with services such as music production, global distribution, marketing, and legal guidance.</p>
         </div>
-    </section>
-
-    <!-- Partners Section -->
-    <section id="partners" class="content-area py-16 bg-black text-white relative">
-        <h2 class="text-3xl font-bold text-center mb-8">Our Partners</h2>
-        <div class="relative w-4/5 mx-auto overflow-hidden">
+        <div class="section-right">
+            <h1 class="text-2xl font-bold gradient-text mb-4">Our Partners</h1>
             <div id="partners-carousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -248,13 +257,10 @@
                     <div class="carousel-item">
                         <img src="https://i.ibb.co/LRtsn29/BEE47-EC1-5-C40-496-A-8341-1-FC116-A672-DF.png" class="d-block w-100" alt="Benjamin Studio, b.r.o">
                     </div>
-                    <div class="carousel-item">
-                        <img src="https://i.ibb.co/yd6G778/4412-AABF-2598-49-EF-8-D34-C0150-B5-E5515.jpg" class="d-block w-100" alt="Redeptic Music Group">
-                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer class="py-4">
